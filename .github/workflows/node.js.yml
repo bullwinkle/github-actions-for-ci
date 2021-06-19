@@ -4,8 +4,9 @@ on: [push]
 
 jobs:
   build:
+    - runs-on: ubuntu-latest
+  
     steps:
-      - runs-on: ubuntu-latest
       - uses: actions/checkout@v2
       - name: npm install and build webpack
         run: |
