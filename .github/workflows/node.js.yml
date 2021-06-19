@@ -4,9 +4,8 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    needs: build
     steps:
+      - runs-on: ubuntu-latest
       - uses: actions/checkout@v2
       - name: npm install and build webpack
         run: |
@@ -19,6 +18,8 @@ jobs:
           path: public/    
 
   test:
+    needs: build
+    
     strategy:
       matrix:
         os: [ubuntu-latest, windows-2016]
